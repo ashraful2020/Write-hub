@@ -32,7 +32,7 @@ const NavLink = () => {
     { name: "Contact", link: "Contact", subMenu: false },
   ];
 
-  const [heading, setHeading] = useState(""); 
+  const [heading, setHeading] = useState("");
 
   return (
     <>
@@ -40,13 +40,12 @@ const NavLink = () => {
         return (
           <div className="group px-1 text-left md:cursor-pointer">
             <h1
-              className="container flex justify-between text-left font-bold text-gray-400 hover:text-white"
+              className="container flex justify-between pt-6 text-left font-bold uppercase text-gray-400 hover:text-white md:pt-0"
               onClick={() =>
                 heading !== link.name ? setHeading(link.name) : setHeading("")
               }
             >
               {link.name}
-
               {link.subMenu && (
                 <span className=" inline text-xl md:ml-2 md:block group-hover:md:-mt-2 group-hover:md:rotate-180">
                   <ion-icon
@@ -85,7 +84,7 @@ const NavLink = () => {
                 className={`${heading === link.name ? "md:hidden" : "hidden"}`}
               >
                 {link.subLink.map((slink) => (
-                  <p className="pl-8 text-sm font-normal text-gray-400 hover:font-medium hover:text-white">
+                  <p className="pl-10 pt-4 text-base font-normal text-gray-400 hover:font-medium hover:text-white">
                     {slink.name}
                   </p>
                 ))}

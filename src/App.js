@@ -1,11 +1,10 @@
-import './App.css';
-import Navigation from './Pages/Shared/Navigation/Navigation';
-import NavLink from "./Pages/Shared/Navigation/NavLink";
+import "./App.css";
+import Home from "./Pages/Home/Home/Home";
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
+       <Home />
     </div>
   );
 }

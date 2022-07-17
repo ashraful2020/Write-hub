@@ -4,7 +4,7 @@ import NavLink from "./NavLink";
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-black text-white md:pt-5">
+    <div className="z-50 bg-neutral-900 pt-4 text-white ">
       {/*  First Header  */}
       <div className="my-6 hidden items-center justify-around md:flex">
         {/*  First header first part  */}
@@ -35,13 +35,13 @@ const Navigation = () => {
         </p>
       </div>
 
-      <ul className="hidden justify-center text-sm md:flex md:gap-10">
+      <ul className="z-50 hidden justify-center text-sm md:flex md:gap-10 md:py-6 ">
         <NavLink />
       </ul>
 
       {/*  Mobile menu  */}
       <ul
-        className={`absolute h-fit w-full bg-black py-8 pl-4 duration-500 md:hidden ${
+        className={`absolute z-50 h-screen w-full bg-black py-8 pl-4 opacity-100 duration-500 md:hidden ${
           open ? "left-0" : "left-[-100%]"
         }`}
       >
