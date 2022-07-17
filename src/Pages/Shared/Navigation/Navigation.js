@@ -4,7 +4,7 @@ import NavLink from "./NavLink";
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-black text-white md:pt-5">
+    <div className="bg-black text-white md:pt-5 ">
       {/*  First Header  */}
       <div className="my-6 hidden items-center justify-around md:flex">
         {/*  First header first part  */}
@@ -35,7 +35,7 @@ const Navigation = () => {
         </p>
       </div>
 
-      <ul className="hidden justify-center text-sm md:flex md:gap-10">
+      <ul className="hidden justify-center md:py-6 text-sm md:flex md:gap-10">
         <NavLink />
       </ul>
 
