@@ -6,7 +6,7 @@ const Tags = () => {
         <div className="ml-3 flex items-center justify-center text-center">
           <div>
             <h2 className="text-center text-3xl font-semibold">Tags</h2>
-            <div className="">
+            <div className="max-w-4xl">
               <button className="btn">SALAD</button>
               <button className="btn">RECIPE</button>
               <button className="btn">PLACES</button>
@@ -14,8 +14,6 @@ const Tags = () => {
               <button className="btn">EXERCISE</button>
               <button className="btn">TRAVEL</button>
               <button className="btn">TRAVEL</button>
-            </div>
-            <div>
               <button className="btn">TIPS</button>
               <button className="btn">READING</button>
               <button className="btn">RUNNING</button>

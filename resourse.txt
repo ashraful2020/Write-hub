@@ -1,1 +1,13 @@
 npm install -D prettier-plugin-tailwindcss
+
+
+rgb(22, 22, 22)
+#161616
+
+#050505
+rgb(5, 5, 5)
+
+
+mine 
+#18181b
+rgb(24, 24, 27)
