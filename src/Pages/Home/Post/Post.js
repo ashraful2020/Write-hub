@@ -1,33 +1,45 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import "./Post.css";
 const Post = () => {
-    const blogs=[];
+  const [newData1, setNewData1] = useState([]);
+  useEffect(() => {
+    fetch("./data.json")
+      .then((res) => res.json())
+      .then((data) => setNewData1(data));
+  }, []);
+  console.log(newData1);
   return (
-    <div className="md:py-25 grid grid-cols-1 gap-5 bg-slate-300 px-5 py-20 sm:grid-cols-2  md:gap-8 md:px-5 lg:grid-cols-4 lg:gap-10 lg:px-10">
-      {blogs.map((post) => (
-        <div key={post._id}>
-          <div className="blog-cart-warp bg-white">
-            <div className="blog-cart-img ">
-              <img className="w-full" src={post.img} alt={post.title} />
-            </div>
-            <div className="blog-content  p-4">
-              <p className="font-semibold text-gray-500">{post.date}</p>
-              {/* <Link
-                to={`/blogs/${post._id}`}
-                style={{ textDecoration: "none" }}
-              >
-                <h3 className="font-large py-5 font-serif text-2xl">
-                  {post.title}
-                </h3>
-              </Link> */}
-              <p className="font-sans text-gray-500">{post.blog}</p>
-              <p className="pt-5 text-lg font-semibold text-blue-600">
-                {post.category}
-              </p>
-            </div>
+    <div className="bg-gray-100 py-20">
+      <div className="gallery mx-2 sm:mx-4 md:mx-12 lg:mx-32">
+        {newData1.map((data, i) => (
+          <div key={data.id} className="pics ">
+            {data.type === "blog" && (
+              <div className="m-1 bg-white  shadow shadow-gray-300">
+                <img src={data.imgURL} alt="" style={{ width: "100%" }} />
+                <div className="p-5">
+                  <p className="">{data.date}</p>
+                  <p className="font-sans text-xl font-semibold tracking-tight">
+                    {data.title}
+                  </p>
+                  <p className=" text-justify tracking-tight">
+                    {data.description}
+                  </p>
+                </div>
+              </div>
+            )}
+            {data.type === "quote" && (
+              <div className="m-1 bg-green-300  p-5  shadow-lg  shadow-gray-300">
+                <p className="text-left tracking-tighter">
+                  " {data.description} "
+                </p>
+                <p className="text-right tracking-tighter text-red-700">
+                  -{data.author}
+                </p>
+              </div>
+            )}
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

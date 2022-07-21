@@ -3,7 +3,7 @@ import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import PopularPost from '../../Shared/PopularPost/PopularPost';
 import Tags from '../../Shared/Tags/Tags';
-import Hero from '../Hero/Hero';
+import Hero from '../Hero/Hero'; 
 import Post from '../Post/Post';
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
       <div>
         <Navigation />
         <Hero />
-        <Post />
+        <Post /> 
         <PopularPost />
         <Tags />
         <Footer />

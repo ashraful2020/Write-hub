@@ -12,7 +12,7 @@ const Hero = () => {
             alt="music"
           />
           <div className="relative">
-            <div className="absolute bottom-1 p-5 text-white sm:p-12 xl:bottom-14">
+            <div className="absolute bottom-1 p-5 text-white sm:p-12 xl:bottom-14 text-left">
               <button className="bg-blue-300 px-3 py-1 font-bold uppercase">
                 MUSIC
               </button>
@@ -39,7 +39,7 @@ const Hero = () => {
             alt="wealth"
           />
           <div className="relative">
-            <div className="absolute bottom-1 p-5 text-white xl:bottom-1">
+            <div className="absolute bottom-1 p-5 text-white xl:bottom-1 text-left">
               <button className="bg-lime-600 px-3 py-1 font-bold uppercase">
                 Management
               </button>
@@ -66,7 +66,7 @@ const Hero = () => {
             alt="health"
           />{" "}
           <div className="relative">
-            <div className="absolute bottom-1 p-5 text-white xl:bottom-1">
+            <div className="absolute bottom-1 p-5 text-white xl:bottom-1 text-left">
               <button className="bg-lime-600 px-3 py-1 font-bold uppercase">
                 Life style
               </button>
