@@ -8,11 +8,11 @@ const Hero = () => {
         <div className="imgThree col-span-2 row-span-2">
           <img
             className="h-80 w-full object-cover hover:brightness-50  md:h-full lg:h-full "
-            src="https://i.ibb.co/9yNHdw1/hero-rock.png"
+            src="https://i.ibb.co/RBTRtbc/rock.jpg"
             alt="music"
           />
           <div className="relative">
-            <div className="absolute bottom-1 p-5 text-white sm:p-12 xl:bottom-14">
+            <div className="absolute bottom-1 p-5 text-left text-white sm:p-12 xl:bottom-14">
               <button className="bg-blue-300 px-3 py-1 font-bold uppercase">
                 MUSIC
               </button>
@@ -35,11 +35,11 @@ const Hero = () => {
         <div className="row-start-3 lg:row-start-1">
           <img
             className="h-72 w-full object-cover brightness-75 hover:brightness-50 lg:h-full"
-            src="https://i.ibb.co/TbgyddX/hero-watch.png"
+            src="https://i.ibb.co/Y84qXjM/watch.jpg"
             alt="wealth"
           />
           <div className="relative">
-            <div className="absolute bottom-1 p-5 text-white xl:bottom-1">
+            <div className="absolute bottom-1 p-5 text-left text-white xl:bottom-1">
               <button className="bg-lime-600 px-3 py-1 font-bold uppercase">
                 Management
               </button>
@@ -62,11 +62,11 @@ const Hero = () => {
         <div className="row-start-3 hidden   md:block lg:row-start-2">
           <img
             className="h-72 object-cover brightness-75 hover:brightness-50 lg:h-full"
-            src="https://i.ibb.co/j3Lx6Ts/hero-car.png"
+            src="https://i.ibb.co/tCZmjQG/car.jpg"
             alt="health"
           />{" "}
           <div className="relative">
-            <div className="absolute bottom-1 p-5 text-white xl:bottom-1">
+            <div className="absolute bottom-1 p-5 text-left text-white xl:bottom-1">
               <button className="bg-lime-600 px-3 py-1 font-bold uppercase">
                 Life style
               </button>

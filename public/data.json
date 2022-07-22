@@ -1,0 +1,81 @@
+[
+  {
+    "id": 1,
+    "type": "blog",
+    "title": "Just a Standard Format Post.",
+    "description": "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed ",
+    "date": "22-22-2022",
+    "category": "Health",
+    "sub_category": "cooking",
+    "imgURL": "https://i.ibb.co/vjThW2q/blog-post-catagory-1.png"
+  },
+  {
+    "id": 2,
+    "type": "blog",
+    "title": "Just a Standard Format Post.",
+    "description": "Lorem ipsum Sed eiusmod esse  ",
+    "date": "22-22-2022",
+    "category": "Health",
+    "sub_category": "cooking",
+    "imgURL": "https://i.ibb.co/JRLyZk4/blog-post-category-long-1.png"
+  },
+  {
+    "id": 42,
+    "type": "quote",
+    "author": "Dieter Rams",
+    "description": "Good design is making something intelligible and memorable. Great design is making something memorable and meaningful.",
+    "date": "22-22-2022",
+    "category": "Health",
+    "sub_category": "cooking"
+  },
+  {
+    "id": 3,
+    "type": "blog",
+    "title": "Just a Standard Format Post.",
+    "description": "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua  ",
+    "date": "22-22-2022",
+    "category": "Health",
+    "sub_category": "cooking",
+    "imgURL": "https://i.ibb.co/JRLyZk4/blog-post-category-long-1.png"
+  },
+  {
+    "id": 4,
+    "type": "blog",
+    "title": "Just a Standard Format Post.",
+    "description": "Lorem ipsum ",
+    "date": "22-22-2022",
+    "category": "Health",
+    "sub_category": "cooking",
+    "imgURL": "https://i.ibb.co/JRLyZk4/blog-post-category-long-1.png"
+  },
+  {
+    "id": 5,
+    "type": "blog",
+    "title": "Just a Standard Format Post.",
+    "description": "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad m ",
+    "date": "22-22-2022",
+    "category": "Health",
+    "sub_category": "cooking",
+    "imgURL": "https://i.ibb.co/JRLyZk4/blog-post-category-long-1.png"
+  },
+  {
+    "id": 6,
+    "type": "blog",
+    "title": "Just a Standard Format Post.",
+    "description": "Lorem ipsum Sed eiusmod esse aliqua sed incididunt ",
+    "date": "22-22-2022",
+    "category": "Health",
+    "sub_category": "cooking",
+    "imgURL": "https://i.ibb.co/JRLyZk4/blog-post-category-long-1.png"
+  },
+  {
+    "id": 7,
+    "type": "blog",
+    "title": "Just a Standard Format Post.",
+    "description": "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id",
+    "date": "22-22-2022",
+    "category": "Health",
+    "sub_category": "cooking",
+    "imgURL": "https://i.ibb.co/JRLyZk4/blog-post-category-long-1.png"
+  }
+]
