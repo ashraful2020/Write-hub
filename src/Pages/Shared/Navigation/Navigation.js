@@ -37,6 +37,9 @@ const Navigation = () => {
 
       <ul className="z-50 hidden justify-center text-sm md:flex md:gap-10 md:py-6 ">
         <NavLink />
+        <span className="pt-6 text-left font-bold uppercase text-gray-400 hover:text-white md:pt-0">
+          Sign Up
+        </span>
       </ul>
 
       {/*  Mobile menu  */}
@@ -46,6 +49,9 @@ const Navigation = () => {
         }`}
       >
         <NavLink />
+        <span className="pt-6 text-left font-bold uppercase text-gray-400 hover:text-white md:pt-0">
+          Ashraful
+        </span>
       </ul>
     </div>
   );

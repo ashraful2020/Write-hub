@@ -29,8 +29,7 @@ const NavLink = () => {
     },
     { name: "Styles", link: "Styles", subMenu: false },
     { name: "About", link: "About", subMenu: false },
-    { name: "Contact", link: "Contact", subMenu: false },
-    { name: "Sign up", link: "Contact", subMenu: false },
+    { name: "Contact", link: "Contact", subMenu: false }, 
   ];
 
   const [heading, setHeading] = useState("");
@@ -46,7 +45,7 @@ const NavLink = () => {
                 heading !== link.name ? setHeading(link.name) : setHeading("")
               }
               >
-              {link.name}
+              {link.name} 
               {link.subMenu && (
                 <span className=" inline text-xl md:ml-2 md:block group-hover:md:-mt-2 group-hover:md:rotate-180">
                   <ion-icon
