@@ -16,7 +16,7 @@ const useFirebase = () => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
   const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const signInWithGoogle = () => {
     return signInWithPopup(auth, provider);
@@ -24,54 +24,55 @@ const useFirebase = () => {
 
   // Create user account
   const signUpWithEmail = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password)
+    return createUserWithEmailAndPassword(auth, email, password);
   };
   /// Sign in user email and pass
   const signInWithEmail = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        console.log(result.user);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   // Update User Name when register
   const saveUserName = (name) => {
     updateProfile(auth.currentUser, {
-      displayName: name
+      displayName: name,
     })
-      .then(() => {})
+      .then((e) => {
+        const updateNameUser = { ...user, displayName: name };
+        setUser(updateNameUser);
+      })
       .catch((error) => {});
   };
   /// LogOut
-  const logOut = () => {
+  const handleLogOut = () => {
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
+        setUser({});
       })
-      .catch((error) => {
-        // An error happened.
-      });
+      .catch((error) => {});
   };
   /// State check
   useEffect(() => {
+    setIsLoading(true);
     const unsubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
+        setUser({});
       }
+      setIsLoading(false);
     });
     return () => unsubscribed();
-  }, [auth]);
+  }, [auth, user.email]);
 
   return {
     signInWithGoogle,
     user,
     saveUserName,
-    logOut,
-    signInWithEmail,  signUpWithEmail,
+    handleLogOut,
+    signInWithEmail,
+    signUpWithEmail,
+    setIsLoading,
+    isLoading,
   };
 };
 export default useFirebase;
