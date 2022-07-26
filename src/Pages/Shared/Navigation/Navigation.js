@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import useAuth from "../../../hooks/useAuth";
 import NavLink from "./NavLink";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
+  const { user, handleLogOut } = useAuth();
   return (
     <div className="z-50 bg-neutral-900 pt-4 text-white ">
       {/*  First Header  */}
@@ -37,9 +40,18 @@ const Navigation = () => {
 
       <ul className="z-50 hidden justify-center text-sm md:flex md:gap-10 md:py-6 ">
         <NavLink />
-        <span className="pt-6 text-left font-bold uppercase text-gray-400 hover:text-white md:pt-0">
-          Sign Up
-        </span>
+
+        {user.email ? (
+          <div>
+            <span className="nav-link" onClick={handleLogOut}>
+              Log out
+            </span>
+          </div>
+        ) : (
+          <Link to="/register" className="nav-link">
+            Sign Up
+          </Link>
+        )}
       </ul>
 
       {/*  Mobile menu  */}
@@ -49,9 +61,7 @@ const Navigation = () => {
         }`}
       >
         <NavLink />
-        <span className="pt-6 text-left font-bold uppercase text-gray-400 hover:text-white md:pt-0">
-          Ashraful
-        </span>
+        <span className="nav-link">Ashraful</span>
       </ul>
     </div>
   );
