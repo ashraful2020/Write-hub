@@ -42,11 +42,16 @@ const Navigation = () => {
         <NavLink />
 
         {user.email ? (
-          <div>
+          <>
+            <span>
+              <Link to="/dashboard" className="nav-link">
+                Dashboard
+              </Link>
+            </span>
             <span className="nav-link" onClick={handleLogOut}>
               Log out
             </span>
-          </div>
+          </>
         ) : (
           <Link to="/register" className="nav-link">
             Sign Up

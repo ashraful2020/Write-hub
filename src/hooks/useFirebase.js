@@ -14,12 +14,12 @@ import initializeAuthentication from "../firebase/firebase.init";
 initializeAuthentication();
 const useFirebase = () => {
   const auth = getAuth();
-  const provider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const signInWithGoogle = () => {
-    return signInWithPopup(auth, provider);
+    return signInWithPopup(auth, googleProvider);
   };
 
   // Create user account
@@ -67,6 +67,7 @@ const useFirebase = () => {
   return {
     signInWithGoogle,
     user,
+    setUser,
     saveUserName,
     handleLogOut,
     signInWithEmail,
