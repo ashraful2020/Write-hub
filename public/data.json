@@ -67,15 +67,5 @@
     "category": "Health",
     "sub_category": "cooking",
     "imgURL": "https://i.ibb.co/JRLyZk4/blog-post-category-long-1.png"
-  },
-  {
-    "id": 7,
-    "type": "blog",
-    "title": "Just a Standard Format Post.",
-    "description": "Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id",
-    "date": "22-22-2022",
-    "category": "Health",
-    "sub_category": "cooking",
-    "imgURL": "https://i.ibb.co/JRLyZk4/blog-post-category-long-1.png"
   }
 ]

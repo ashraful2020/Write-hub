@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; 
 
 const Hero = () => {
   return (
@@ -7,8 +7,8 @@ const Hero = () => {
         {/* first */}
         <div className="imgThree col-span-2 row-span-2">
           <img
-            className="h-80 w-full object-cover hover:brightness-50  md:h-full lg:h-full "
-            src="https://i.ibb.co/RBTRtbc/rock.jpg"
+            className="h-80 w-full  object-cover hover:brightness-50  md:h-full lg:h-full "
+            src="https://i.ibb.co/MRG97hn/rock.jpg"
             alt="music"
           />
           <div className="relative">
@@ -35,7 +35,7 @@ const Hero = () => {
         <div className="row-start-3 lg:row-start-1">
           <img
             className="h-72 w-full object-cover brightness-75 hover:brightness-50 lg:h-full"
-            src="https://i.ibb.co/Y84qXjM/watch.jpg"
+            src="https://i.ibb.co/DgKPHcw/watch.png"
             alt="wealth"
           />
           <div className="relative">
@@ -62,7 +62,7 @@ const Hero = () => {
         <div className="row-start-3 hidden   md:block lg:row-start-2">
           <img
             className="h-72 object-cover brightness-75 hover:brightness-50 lg:h-full"
-            src="https://i.ibb.co/tCZmjQG/car.jpg"
+            src="https://i.ibb.co/pZN7tG1/car.png"
             alt="health"
           />{" "}
           <div className="relative">

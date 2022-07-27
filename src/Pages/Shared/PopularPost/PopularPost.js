@@ -28,7 +28,7 @@ const PopularPost = () => {
                   By
                   <span className="text-black hover:text-blue-800">
                     John Doe
-                  </span>{" "}
+                  </span>
                   on Dec 14, 2017
                 </small>
               </div>
