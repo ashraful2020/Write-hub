@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./contexts/AuthProvider";
@@ -10,8 +11,19 @@ import Login from "./Pages/Shared/Login/Login";
 import NotFound from "./Pages/Shared/NotFound/NotFound";
 import PrivateRoute from "./Pages/Shared/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Shared/Register/Register";
+import Spinner from "./Pages/Shared/Spinner/Spinner";
 
 function App() {
+  const [pageLoading, setPageLoading] = useState(false);
+  useEffect(() => {
+    setPageLoading(true);
+    setTimeout(() => {
+      setPageLoading(false);
+    }, 1000);
+  }, []);
+  if (pageLoading) {
+    return <Spinner />;
+  }
   return (
     <AuthProvider className="App">
       <Routes>
