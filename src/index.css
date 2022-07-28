@@ -29,3 +29,6 @@ code {
 .dashboard-link {
   @apply block border-b border-gray-900 mx-5 p-2 uppercase text-xl font-medium
 }
+.dashboard-link-mobile {
+  @apply block  p-2 uppercase text-xl font-medium hover:bg-black hover:text-white
+}

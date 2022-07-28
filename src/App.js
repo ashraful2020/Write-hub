@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./contexts/AuthProvider";
-import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard"; 
+import DashboardHome from "./Pages/Dashboard/Dashboard/DashboardHome";
 import PostBlog from "./Pages/Dashboard/PostBlog/PostBlog";
 import PostBlog1 from "./Pages/Dashboard/PostBlog/PostBlog1";
-import PostBlog2 from "./Pages/Dashboard/PostBlog/PostBlog2";
+import PostBlog2 from "./Pages/Dashboard/PostBlog/PostBlog2"; 
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Shared/Login/Login";
 import NotFound from "./Pages/Shared/NotFound/NotFound";
@@ -19,13 +20,12 @@ function App() {
     setPageLoading(true);
     setTimeout(() => {
       setPageLoading(false);
-    }, 1000);
+    }, 2000);
   }, []);
-  if (pageLoading) {
-    return <Spinner />;
-  }
+
   return (
     <AuthProvider className="App">
+      {pageLoading && <Spinner />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -34,15 +34,17 @@ function App() {
           path="/dashboard"
           element={
             <PrivateRoute>
-              <Dashboard />
+              <Dashboard/>
             </PrivateRoute>
           }
         >
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+
+          <Route path="/dashboard" element={<DashboardHome/>} />
           <Route path="/dashboard/post-blog" element={<PostBlog />} />
           <Route path="/dashboard/post-blog1" element={<PostBlog1 />} />
           <Route path="/dashboard/post-blog2" element={<PostBlog2 />} />
         </Route>
+ 
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AuthProvider>

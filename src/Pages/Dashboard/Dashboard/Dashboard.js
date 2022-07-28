@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 const Dashboard = () => {
-  const [isOpen, setIsOpen] = useState(true); 
+  const [isOpen, setIsOpen] = useState(true);
+  const navLinkItem = [
+    { id: 1, name: "Dashboard", link: "/dashboard" },
+    { id: 2, name: "Post Blog 0", link: "/dashboard/post-blog" },
+    { id: 3, name: "Post Blog 1", link: "/dashboard/post-blog1" },
+    { id: 4, name: "Post Blog 2", link: "/dashboard/post-blog2" },
+    { id: 5, name: "Post Blog ", link: "/dashboard/post-blog" },
+    { id: 6, name: "Post Blog 1", link: "/dashboard/post-blog1" },
+    { id: 7, name: "Post Blog 2", link: "/dashboard/post-blog2" },
+  ];
   return (
-    <div className="flex text-center">
+    <div className="main-container text-center md:flex ">
       <div
-        className={`block h-screen w-0 bg-blue-300 ${
+        className={`sidebar hidden h-full w-0  border-r border-rose-200 bg-blue-200 md:block ${
           isOpen ? "md:w-72" : "md:w-12"
         }`}
       >
-        <div className="flex justify-around items-center my-5">
+        {/* No Need To Touch  */}
+        <div className="my-5 hidden items-center justify-around text-black md:flex">
           <h1 className={`text-3xl ${isOpen ? "block" : "hidden"}`}>
             Write hub
           </h1>
@@ -19,16 +29,44 @@ const Dashboard = () => {
             ></ion-icon>
           </div>
         </div>
-        <div className={`${isOpen ? "" : "hidden"}`}>
-         <b className="dashboard-link"> <Link to="/dashboard/post-blog" >blog</Link></b> 
-         <b className="dashboard-link"> <Link to="/dashboard/post-blog1">blog 1</Link></b> 
-         <b className="dashboard-link"> <Link to="/dashboard/post-blog2">blog 2</Link></b> 
-         <b className="dashboard-link"> <Link to="/dashboard/post-blog" >blog</Link></b> 
-         <b className="dashboard-link"> <Link to="/dashboard/post-blog1">blog 1</Link></b> 
-         <b className="dashboard-link"> <Link to="/dashboard/post-blog2">blog 2</Link></b> 
-       </div>
+        {/* No Need To Touch  */}
+
+        <div className={`${isOpen ? "" : "hidden"} text-black`}>
+          {navLinkItem.map((navLink) => {
+            return (
+              <b
+                key={navLink.id}
+                className="mx-5 block border-b border-gray-900 p-2 text-xl font-medium uppercase"
+              >
+                <Link to={`${navLink.link}`}> {navLink.name}</Link>
+              </b>
+            );
+          })}
+        </div>
       </div>
-      <div className="h-screen bg-green-200 text-7xl lg:w-full">
+      {/*  Mobile Dashboard menu */}
+      <div className={`block w-screen bg-red-200 md:hidden`}>
+        <div className="flex items-center justify-around">
+          <h1 className={`text-3xl}`}>Dashboard</h1>
+          <div className="text-4xl" onClick={() => setIsOpen(!isOpen)}>
+            <ion-icon
+              name={`${isOpen ? "menu-sharp" : "close-sharp"}`}
+            ></ion-icon>
+          </div>
+        </div>
+
+        <div className={`${isOpen ? "hidden" : ""} bg-slate-700 text-white`}>
+          {navLinkItem.map((navLink) => {
+            return (
+              <b key={navLink.id} className="dashboard-link" onClick={() => setIsOpen(!isOpen)}>
+                <Link to={`${navLink.link}`}> {navLink.name}</Link>
+              </b>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="w-full text-7xl">
         <Outlet />
       </div>
     </div>
