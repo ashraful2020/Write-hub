@@ -1,3 +1,12 @@
-.App{
-    text-align: center;
+.App {
+  text-align: center;
 }
+
+.sidebar { 
+  color: white;
+  height: 100vh; 
+  position: sticky; 
+  top:0;
+  left:0;
+  display:relative; 
+} 

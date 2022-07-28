@@ -1,24 +1,27 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../../Assets/images/logo.png";
 import useAuth from "../../../hooks/useAuth";
 const Login = () => {
   const {
     signInWithGoogle,
     signInWithEmail,
-    user,
-    setUser,
-    handleLogOut,
+    setUser, 
     setIsLoading,
-  } = useAuth(); 
+  } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const uri = location?.state?.from?.pathname || "/";
+
   const handleGoogleLogin = () => {
     signInWithGoogle()
-      .then((result) => {
+      .then((res) => {
         setIsLoading(true);
-        setUser(result.user);
+        setUser(res?.user);
+        navigate(uri);
       })
       .catch((error) => {
         console.log(error.message);
@@ -29,12 +32,12 @@ const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
- 
+
     // login user
     signInWithEmail(email, password)
-      .then((result) => {
+      .then((res) => {
         setIsLoading(true);
-        setUser(result.user);
+        setUser(res.user);
       })
       .catch((error) => {
         console.log(error.message);
@@ -47,33 +50,22 @@ const Login = () => {
   const demoLogin = (e) => {
     const demoMail = "demo@demo.com";
     const demoPass = 123456;
-     signInWithEmail(demoMail, demoPass)
-       .then((result) => {
-         setIsLoading(true);
-         setUser(result.user);
-       })
-       .catch((error) => {
-         console.log(error.message);
-       })
-       .finally(() => {
-         setIsLoading(false);
-       });
-  }
+    signInWithEmail(demoMail, demoPass)
+      .then((result) => {
+        setIsLoading(true);
+        setUser(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-300 via-purple-300 to-fuchsia-100 pt-10">
       <div className="backdrop-blur-5xl mx-auto  w-11/12 rounded-xl bg-white bg-opacity-20 p-5 text-center shadow-2xl md:w-1/2 lg:w-1/3">
-        {user.email ? (
-          <div>
-            <p className="text-sm">User Name : {user.displayName} </p>
-            <p className="text-sm">User Name : {user.email} </p>
-            <button onClick={handleLogOut} className="bg-red-300 px-5 py-2">
-              Log Out
-            </button>
-          </div>
-        ) : (
-          <p>Please Login</p>
-        )}
-
+       
         <p className="flex h-20 items-center justify-center gap-10 font-mono text-2xl font-bold md:text-4xl">
           <img src={logo} alt="" className=" h-12 md:h-16" />
           <span> Write Hub</span>
@@ -109,7 +101,11 @@ const Login = () => {
           Sign in with Google
         </button>
         <p>
-          Don't have an account? <Link to="/register" className=" underline"> Register here</Link>
+          Don't have an account?{" "}
+          <Link to="/register" className=" underline">
+            {" "}
+            Register here
+          </Link>
         </p>
         <button className="login-submit" onClick={demoLogin}>
           Demo Login

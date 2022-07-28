@@ -26,3 +26,9 @@ code {
 .nav-link {
   @apply pt-6 text-left font-bold uppercase text-gray-400 hover:text-white md:pt-0;
 }
+.dashboard-link {
+  @apply block border-b border-gray-900 mx-5 p-2 uppercase text-xl font-medium
+}
+.dashboard-link-mobile {
+  @apply block  p-2 uppercase text-xl font-medium hover:bg-black hover:text-white
+}

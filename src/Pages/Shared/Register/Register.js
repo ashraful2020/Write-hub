@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../../Assets/images/logo.png";
 import useAuth from "../../../hooks/useAuth";
 const Register = () => {
   const {
     signInWithGoogle,
-    signUpWithEmail,
-    user,
-    handleLogOut,
+    signUpWithEmail, 
     saveUserName,
     setIsLoading,
     setUser,
@@ -16,11 +14,18 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(""); 
+
+
+    const location = useLocation();
+    const navigate = useNavigate();
+  const uri = location?.state?.from?.pathname || "/";
+  
   const handleGoogleLogin = () => {
     signInWithGoogle()
-      .then((result) => {
+      .then((res) => {
         setIsLoading(true);
-        setUser(result.user);
+        // setUser();
+        console.log(res)
       })
       .catch((error) => {
         console.log(error.message);
@@ -38,6 +43,7 @@ const Register = () => {
         setIsLoading(true);
         saveUserName(name);
         setUser(result.user);
+        navigate(uri)
       })
       .catch((error) => {
         console.log(error.message);
