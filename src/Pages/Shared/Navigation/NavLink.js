@@ -9,12 +9,12 @@ const NavLink = () => {
       link: "/",
       subMenu: true,
       subLink: [
-        { name: "Life Style", link: "life-style" },
-        { name: "Health", link: "health" },
-        { name: "Family", link: "family" },
-        { name: "Management", link: "management" },
-        { name: "Travel", link: "" },
-        { name: "Work", link: "" },
+        { name: "Life Style", link: "/life-style" },
+        { name: "Health", link: "/health" },
+        { name: "Family", link: "/family" },
+        { name: "Management", link: "/management" },
+        { name: "Travel", link: "/" },
+        { name: "Work", link: "/" },
       ],
     },
     {
@@ -22,14 +22,14 @@ const NavLink = () => {
       link: "/",
       subMenu: true,
       subLink: [
-        { name: "Video Post", link: "video-post" },
-        { name: "Audio Post", link: "audio-post" },
-        { name: "Gallery Post", link: "gallery-post" },
-        { name: "Standard Post", link: "standard-post" },
+        { name: "Video Post", link: "/video-post" },
+        { name: "Audio Post", link: "/audio-post" },
+        { name: "Gallery Post", link: "/gallery-post" },
+        { name: "Standard Post", link: "/standard-post" },
       ],
     },
-    { name: "Styles", link: "styles", subMenu: false },
-    { name: "Contact", link: "contact", subMenu: false },
+    { name: "Styles", link: "/styles", subMenu: false },
+    { name: "Contact", link: "/contact", subMenu: false },
   ];
 
   const [heading, setHeading] = useState("");

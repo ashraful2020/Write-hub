@@ -12,7 +12,7 @@ const Post = () => {
     <div className="bg-gray-100 py-20">
       <div className="gallery mx-2 sm:mx-4 md:mx-12 lg:mx-32">
         {newData1.map((data, i) => (
-          <div key={data.id} className="pics">
+          <div key={data.id} className="pics" >
             {data.type === "blog" && (
               <div className="m-1 bg-white  shadow shadow-gray-300">
                 <img src={data.imgURL} alt="" className="w-full md:max-h-52 object-fill"/>
