@@ -1,12 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
 }
 
-.sidebar { 
+.sidebar {
   color: white;
-  height: 100vh; 
-  position: sticky; 
-  top:0;
-  left:0;
-  display:relative; 
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: relative;
+}
+@layer base {
+  h1 {
+    /* @apply text-sm; */
+  }
+  h2 {
+    /* @apply text-sm; */
+  }
+  h3 {
+    /* @apply text-sm; */
+  }
+  h4 {
+    /* @apply text-sm; */
+  }
+  h5 {
+    /* @apply text-sm; */
+  }
+  h1 {
+    /* @apply text-sm; */
+  }
+}
+
+@layer components {
+  .OwnBtn {
+    @apply bg-blue-200 px-6 py-2;
+  }
+}
+@layer utilities {
+  .OwnUtilsBtn {
+    font-style: italic;
+    font-size: 15px;
+    background: blue;
+    padding: 30px 60px;
+  }
 }
