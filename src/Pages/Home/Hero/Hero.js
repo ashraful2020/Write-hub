@@ -1,6 +1,7 @@
-import React from "react"; 
+import React from "react";  
+import img from "../../../Assets/images/50.png"
 
-const Hero = () => {
+const Hero = () => { 
   return (
     <div>
       <div className="hero-warp grid grid-flow-col grid-rows-2 bg-stone-900 p-6 lg:p-8 lg:pt-14 xl:px-24">
@@ -22,7 +23,7 @@ const Hero = () => {
               <div className="flex items-center justify-start gap-6 text-gray-500">
                 <img
                   className="hidden h-12 w-12 rounded-full object-cover text-sm lg:block"
-                  src="https://ashraful.web.app/static/media/my.5e666b41c02ca2e974b1.png"
+                  src={img}
                   alt="author"
                 />
                 <p className="text-md font-black">Ashraful</p>
@@ -49,7 +50,7 @@ const Hero = () => {
               <div className="flex items-center justify-start gap-6 text-neutral-300">
                 <img
                   className="hidden h-12 w-12 rounded-full object-cover text-sm lg:block"
-                  src="https://ashraful.web.app/static/media/my.5e666b41c02ca2e974b1.png"
+                  src={img}
                   alt="author"
                 />
                 <p className="text-md font-black">Ashraful</p>
@@ -76,7 +77,7 @@ const Hero = () => {
               <div className="flex items-center justify-start gap-6 text-gray-500">
                 <img
                   className="hidden h-12 w-12 rounded-full object-cover text-sm lg:block"
-                  src="https://ashraful.web.app/static/media/my.5e666b41c02ca2e974b1.png"
+                  src={img}
                   alt="author"
                 />
                 <p className="text-md font-black">Ashraful</p>
