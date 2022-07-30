@@ -1,10 +1,10 @@
-import React from "react";  
-import img from "../../../Assets/images/50.png"
+import React from "react";
+import img from "../../../Assets/images/50.png";
 
-const Hero = () => { 
+const Hero = () => {
   return (
-    <div>
-      <div className="hero-warp grid grid-flow-col grid-rows-2 bg-stone-900 p-6 lg:p-8 lg:pt-14 xl:px-24">
+    <div className="bg-stone-900 ">
+      <div className="hero-warp grid grid-flow-col grid-rows-2 bg-stone-900 lg:max-w-6xl mx-auto ">
         {/* first */}
         <div className="imgThree col-span-2 row-span-2">
           <img

@@ -7,6 +7,8 @@ import DashboardHome from "./Pages/Dashboard/Dashboard/DashboardHome";
 import PostBlog from "./Pages/Dashboard/PostBlog/PostBlog";
 import PostBlog1 from "./Pages/Dashboard/PostBlog/PostBlog1";
 import PostBlog2 from "./Pages/Dashboard/PostBlog/PostBlog2";
+import About from "./Pages/Home/About/About";
+import Contact from "./Pages/Home/Contact.js/Contact";
 import Home from "./Pages/Home/Home/Home";
 import SinglePost from "./Pages/Home/SinglePost/SinglePost";
 import Login from "./Pages/Shared/Login/Login";
@@ -32,9 +34,11 @@ function App() {
       ) : (
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/contact" element={<Contact/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/post" element={<SinglePost/>} />
+          <Route path="/post" element={<SinglePost />} />
           <Route
             path="/dashboard"
             element={
