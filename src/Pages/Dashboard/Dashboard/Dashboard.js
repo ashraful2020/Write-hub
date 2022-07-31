@@ -3,13 +3,10 @@ import { Link, Outlet } from "react-router-dom";
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(true);
   const navLinkItem = [
-    { id: 1, name: "Dashboard", link: "/dashboard" },
-    { id: 2, name: "Post Blog 0", link: "/dashboard/post-blog" },
-    { id: 3, name: "Post Blog 1", link: "/dashboard/post-blog1" },
-    { id: 4, name: "Post Blog 2", link: "/dashboard/post-blog2" },
-    { id: 5, name: "Post Blog ", link: "/dashboard/post-blog" },
-    { id: 6, name: "Post Blog 1", link: "/dashboard/post-blog1" },
-    { id: 7, name: "Post Blog 2", link: "/dashboard/post-blog2" },
+    { id: 1, name: "Home", link: "/" },
+    { id: 2, name: "Dashboard", link: "/dashboard" },
+    { id: 3, name: "Post Blog", link: "/dashboard/post-blog" },
+    { id: 4, name: "My profile", link: "/dashboard/profile" },
   ];
   return (
     <div className="main-container text-center md:flex ">
@@ -31,17 +28,20 @@ const Dashboard = () => {
         </div>
         {/* No Need To Touch  */}
 
-        <div className={`${isOpen ? "" : "hidden"} text-black`}>
+        <div className={`${isOpen ? "" : "hidden"} text-black `}>
           {navLinkItem.map((navLink) => {
             return (
               <b
                 key={navLink.id}
-                className="mx-5 block border-b border-gray-900 p-2 text-xl font-medium uppercase"
+                className="dashboard-link"
               >
                 <Link to={`${navLink.link}`}> {navLink.name}</Link>
               </b>
             );
           })}
+          <b className="dashboard-link">
+            Log Out
+          </b>
         </div>
       </div>
       {/*  Mobile Dashboard menu */}
@@ -58,7 +58,11 @@ const Dashboard = () => {
         <div className={`${isOpen ? "hidden" : ""} bg-slate-700 text-white`}>
           {navLinkItem.map((navLink) => {
             return (
-              <b key={navLink.id} className="dashboard-link" onClick={() => setIsOpen(!isOpen)}>
+              <b
+                key={navLink.id}
+                className="dashboard-link"
+                onClick={() => setIsOpen(!isOpen)}
+              >
                 <Link to={`${navLink.link}`}> {navLink.name}</Link>
               </b>
             );

@@ -15,50 +15,43 @@ code {
     monospace;
 }
 /*  Group utilities */
-.btn {
-  @apply m-2 rounded bg-slate-300 py-2 px-4 font-bold text-gray-800 hover:bg-black hover:text-white;
-}
-.btn-tag {
-  @apply m-2 rounded-sm border border-gray-400 py-1 px-5 font-light text-gray-600 hover:rounded hover:border-none hover:bg-black hover:text-white;
-}
-.login-input {
-  @apply mx-auto mt-4 block h-12 w-full rounded-lg border  px-3 py-5 focus:outline-gray-500;
-}
-.login-submit {
-  @apply mx-auto mt-2 block w-full rounded-3xl bg-gradient-to-r from-blue-400 to-violet-400 py-3 px-3 text-white;
-}
-.nav-link {
-  @apply pt-6 text-left font-bold uppercase text-gray-400 hover:text-white md:pt-0;
-}
-/* 2 */
-.dashboard-link {
-  @apply mx-5 block border-b border-gray-900 p-2 text-xl font-medium uppercase;
-}
-/* 2 */
-.dashboard-link-mobile {
-  @apply block  p-2 text-xl font-medium uppercase hover:bg-black hover:text-white;
-}
-.social-media-btn {
-  @apply m-2  font-bold uppercase tracking-widest;
-}
-/* 1 */
-.post-input {
-  @apply mx-auto my-6 h-12  w-full border-b-2  border-gray-500 bg-neutral-200 py-8 font-serif text-lg focus:border-blue-600  focus:outline-none;
-}
-/* 1 */
-.post-textarea {
-  @apply mx-auto my-6 h-52  w-full border-b-2  border-gray-600 bg-neutral-200 py-8 font-serif text-lg focus:border-blue-600  focus:outline-none;
-}
-.post-textarea2 {
-  @apply mx-auto my-6 h-52  w-full border-b-2  border-gray-600 bg-neutral-200 py-8 font-serif text-4xl focus:border-blue-600  focus:outline-none;
-}
-.post-textarea3 {
-  @apply mx-auto my-6 h-52  w-full border-b-2  border-gray-600 bg-neutral-200 py-8 font-serif text-2xl focus:border-blue-600  focus:outline-none;
-}
-/* 1 */
-.post-title {
-  @apply mx-auto my-6 h-12  w-full border-b-2  border-gray-500 bg-neutral-200 py-8 font-serif text-5xl focus:border-blue-600  focus:outline-none;
-}
-.post-title2 {
-  @apply mx-auto my-6 h-12  w-full border-b-2  border-gray-500 bg-neutral-200 py-8 font-serif text-3xl focus:border-blue-600  focus:outline-none;
+@layer components {
+  .btn {
+    @apply m-2 rounded bg-slate-300 py-2 px-4 font-bold text-gray-800 hover:bg-black hover:text-white;
+  }
+  .btn-tag {
+    @apply m-2 rounded-sm border border-gray-400 py-1 px-5 font-light text-gray-600 hover:rounded hover:border-none hover:bg-black hover:text-white;
+  }
+  .login-input-common {
+    @apply mx-auto mt-4 block h-12 w-full rounded-lg px-3 focus:outline-gray-300;
+  }
+  .login-input {
+    @apply login-input-common border py-6;
+  }
+  .login-submit {
+    @apply login-input-common bg-gradient-to-r from-blue-400 to-violet-400 py-3 text-white;
+  }
+  .nav-link {
+    @apply pt-6 text-left font-bold uppercase text-gray-400 hover:text-white md:pt-0;
+  }
+  .dashboard-common {
+    @apply block p-2 text-lg font-medium uppercase;
+  }
+  /* 2 */
+  .dashboard-link {
+    @apply dashboard-common mx-5  border-b border-black border-opacity-20;
+  }
+  /* 2 */
+  .dashboard-link-mobile {
+    @apply dashboard-common hover:bg-black hover:text-white;
+  }
+  .social-media-btn {
+    @apply m-2  font-bold uppercase tracking-widest;
+  }
+  .post-input {
+    @apply mx-auto my-3 w-full border-b-2  border-gray-600 bg-neutral-200 py-5 font-serif focus:border-blue-600  focus:outline-none ;
+  }
+  .add-post{
+    @apply md:absolute xl:bottom-0 h-12  xl:-left-20 lg:-left-14 md:-left-10 md:top-5 text-6xl font-thin opacity-70 hover:text-green-600;
+  }
 }

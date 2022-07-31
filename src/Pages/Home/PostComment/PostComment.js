@@ -62,7 +62,7 @@ const PostComment = () => {
               />
               <textarea
                 autoComplete="off"
-                className="post-textarea h-96"
+                className="post-input h-52"
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Enter your message"
                 required
