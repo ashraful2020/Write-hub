@@ -5,6 +5,8 @@ import AuthProvider from "./contexts/AuthProvider";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import DashboardHome from "./Pages/Dashboard/Dashboard/DashboardHome";
 import PostBlog from "./Pages/Dashboard/PostBlog/PostBlog"; 
+import Profile from "./Pages/Dashboard/Profile/Profile";
+import QuotePost from "./Pages/Dashboard/QuotePost/QuotePost";
 import About from "./Pages/Home/About/About";
 import Contact from "./Pages/Home/Contact.js/Contact";
 import Home from "./Pages/Home/Home/Home";
@@ -26,6 +28,7 @@ function App() {
 
   return (
     <AuthProvider className="App">
+      
       {pageLoading ? (
         <Spinner />
       ) : (
@@ -46,8 +49,8 @@ function App() {
           >
             <Route path="/dashboard" element={<DashboardHome />} />
             <Route path="/dashboard/post-blog" element={<PostBlog />} />
-            {/* <Route path="/dashboard/post-blog1" element={<PostBlog1 />} />
-            <Route path="/dashboard/post-blog2" element={<PostBlog2 />} /> */}
+            <Route path="/dashboard/post-quote" element={<QuotePost />} />
+            <Route path="/dashboard/profile" element={<Profile />} />
           </Route>
 
           <Route path="*" element={<NotFound />} />

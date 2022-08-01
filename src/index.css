@@ -54,4 +54,7 @@ code {
   .add-post{
     @apply md:absolute xl:bottom-0 h-12  xl:-left-20 lg:-left-14 md:-left-10 md:top-5 text-6xl font-thin opacity-70 hover:text-green-600;
   }
+  .profile-input{
+    @apply block w-full px-3 py-6 bg-gray-100 focus:outline-none border-b focus:border-b-lime-800 text-gray-800;  
+  }
 }

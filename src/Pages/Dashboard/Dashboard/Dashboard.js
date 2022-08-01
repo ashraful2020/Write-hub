@@ -6,7 +6,8 @@ const Dashboard = () => {
     { id: 1, name: "Home", link: "/" },
     { id: 2, name: "Dashboard", link: "/dashboard" },
     { id: 3, name: "Post Blog", link: "/dashboard/post-blog" },
-    { id: 4, name: "My profile", link: "/dashboard/profile" },
+    { id: 4, name: "Post Quote", link: "/dashboard/post-quote" },
+    { id: 5, name: "My profile", link: "/dashboard/profile" },
   ];
   return (
     <div className="main-container text-center md:flex ">
@@ -70,7 +71,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="w-full text-7xl">
+      <div className="w-full"> 
         <Outlet />
       </div>
     </div>
