@@ -61,12 +61,11 @@ const Navigation = () => {
 
       {/*  Mobile menu  */}
       <ul
-        className={`absolute z-50 h-screen w-full bg-black py-8 pl-4 opacity-100 duration-500 md:hidden ${
+        className={`absolute z-50 min-h-screen w-full bg-black py-8 pl-4 opacity-100 duration-500 md:hidden ${
           open ? "left-0" : "left-[-100%]"
         }`}
       >
-        <NavLink />
-        <span className="nav-link">Ashraful</span>
+        <NavLink /> 
       </ul>
     </div>
   );

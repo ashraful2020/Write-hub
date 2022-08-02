@@ -22,13 +22,12 @@ const NavLink = () => {
       link: "/",
       subMenu: true,
       subLink: [
-        { name: "Video Post", link: "/video-post" },
-        { name: "Audio Post", link: "/audio-post" },
-        { name: "Gallery Post", link: "/gallery-post" },
-        { name: "Standard Post", link: "/standard-post" },
+        { name: "Gallery Post", link: "/dashboard/post-blog" },
+        { name: "Standard Post", link: "/dashboard/post-quote" },
+        { name: "Video Post", link: "/dashboard/video-post" },
+        { name: "Audio Post", link: "/dashboard/audio-post" },
       ],
-    },
-    { name: "Styles", link: "/styles", subMenu: false },
+    }, 
     { name: "Contact", link: "/contact", subMenu: false },
   ];
 
@@ -56,6 +55,7 @@ const NavLink = () => {
                   ></ion-icon>
                 </span>
               )}
+              
             </h1>
             {link.subMenu && (
               <div>
