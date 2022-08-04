@@ -26,7 +26,7 @@ data title category
     date,
 */
   useEffect(() => {
-    fetch("http://localhost:5000/posts")
+    fetch("https://write-hub.herokuapp.com/posts")
       .then((res) => res.json())
       .then((data) => setNewData1(data));
   }, []); 

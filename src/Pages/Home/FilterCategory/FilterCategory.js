@@ -1,13 +1,12 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import withLayout from "../../../hocs/withLayout";
 const FilterCategory = () => {
   const location = useLocation();
 
   // if (!location.state) return <p>Loading ...</p>;
   const [categoryData, setCategoryData] = useState([]);
   const item = location?.state ? location?.state : "Management";
-  const uri = `http://localhost:5000/category-post?category=${item}`;
+  const uri = `https://write-hub.herokuapp.com/category-post?category=${item}`;
   console.log(item);
   useEffect(() => {
     fetch(uri)

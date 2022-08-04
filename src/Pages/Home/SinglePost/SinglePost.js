@@ -3,12 +3,11 @@ import { useParams } from "react-router-dom";
 import withLayout from "../../../hocs/withLayout";
 import PostComment from "../PostComment/PostComment";
 import img1 from "./3.jpg";
-import profile from "./9.jpg";
 const SinglePost = () => {
   const [singlePost, setSinglePost] = useState({});
   const { id } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:5000/posts/${id}`)
+    fetch(`https://write-hub.herokuapp.com/posts/${id}`)
       .then((res) => res.json())
       .then((data) => setSinglePost(data));
   }, [id]);

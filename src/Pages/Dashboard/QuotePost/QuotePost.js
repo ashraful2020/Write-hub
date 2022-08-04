@@ -13,7 +13,7 @@ const QuotePost = () => {
       type: "quote",
       author,
     };
-    fetch("http://localhost:5000/quote", {
+    fetch("https://write-hub.herokuapp.com/quote", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(post),

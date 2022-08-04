@@ -1,6 +1,6 @@
 import React, { memo, useState } from "react";
-import useAuth from "../../../hooks/useAuth";
 import uploadImage from "../../../Assets/images/upload.png";
+import useAuth from "../../../hooks/useAuth";
 const PostBlog = () => {
   const { user } = useAuth();
   const [img, setImg] = useState(null);
@@ -27,7 +27,7 @@ const PostBlog = () => {
       return alert(`please add a ${!image ? " image " : "category"}`);
     }
 
-    fetch("http://localhost:5000/posts", {
+    fetch("https://write-hub.herokuapp.com/posts", {
       method: "POST",
       body: formData,
     })
