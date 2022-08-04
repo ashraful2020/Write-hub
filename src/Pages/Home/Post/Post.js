@@ -15,7 +15,7 @@ title: "Ashraful "
 
 data title category 
 <img src={`data:image/png;base64,${image}`} alt=""style={{width:200,}} />
- title,
+    title,
     message,
     summery,
     category,
@@ -29,14 +29,13 @@ data title category
     fetch("http://localhost:5000/posts")
       .then((res) => res.json())
       .then((data) => setNewData1(data));
-  }, []);
-  console.log(newData1);
+  }, []); 
   return (
     <div className="bg-gray-100 py-20">
       <div className="gallery mx-2 sm:mx-4 md:mx-12 lg:mx-32">
         {newData1.map((post, i) => (
           <div key={post._id} className="pics">
-            <Link to="/post">
+            <Link to={`/post/${post._id}`}>
               {post.type === "blog" && (
                 <div className="m-1 bg-white  shadow shadow-gray-300">
                   <img

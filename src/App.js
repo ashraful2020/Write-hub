@@ -4,11 +4,12 @@ import "./App.css";
 import AuthProvider from "./contexts/AuthProvider";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import DashboardHome from "./Pages/Dashboard/Dashboard/DashboardHome";
-import PostBlog from "./Pages/Dashboard/PostBlog/PostBlog"; 
+import PostBlog from "./Pages/Dashboard/PostBlog/PostBlog";
 import Profile from "./Pages/Dashboard/Profile/Profile";
 import QuotePost from "./Pages/Dashboard/QuotePost/QuotePost";
 import About from "./Pages/Home/About/About";
 import Contact from "./Pages/Home/Contact.js/Contact";
+import FilterCategory from "./Pages/Home/FilterCategory/FilterCategory";
 import Home from "./Pages/Home/Home/Home";
 import SinglePost from "./Pages/Home/SinglePost/SinglePost";
 import Login from "./Pages/Shared/Login/Login";
@@ -28,17 +29,18 @@ function App() {
 
   return (
     <AuthProvider className="App">
-      
       {pageLoading ? (
         <Spinner />
       ) : (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<About />} />
-          <Route path="/contact" element={<Contact/>} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/post" element={<SinglePost />} />
+          <Route path="/post/:id" element={<SinglePost />} />
+          <Route path="/category-post" element={<FilterCategory />} />
+
           <Route
             path="/dashboard"
             element={

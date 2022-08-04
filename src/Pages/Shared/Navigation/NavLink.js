@@ -9,12 +9,12 @@ const NavLink = () => {
       link: "/",
       subMenu: true,
       subLink: [
-        { name: "Life Style", link: "/life-style" },
-        { name: "Health", link: "/health" },
-        { name: "Family", link: "/family" },
-        { name: "Management", link: "/management" },
-        { name: "Travel", link: "/" },
-        { name: "Work", link: "/" },
+        { name: "Life Style", link: "/category-post",filter:"Life-style" },
+        { name: "Health", link: "/category-post",filter:"Health" },
+        { name: "Family", link: "/category-post",filter:"Family" },
+        { name: "Management", link: "/category-post",filter:"Management" },
+        { name: "Travel", link: "/category-post",filter:"Travel" },
+        { name: "Work", link: "/category-post",filter:"Work" },
       ],
     },
     {
@@ -55,7 +55,6 @@ const NavLink = () => {
                   ></ion-icon>
                 </span>
               )}
-              
             </h1>
             {link.subMenu && (
               <div>
@@ -68,7 +67,9 @@ const NavLink = () => {
                       return (
                         <div key={index}>
                           <h1 className="pt-2 font-normal text-gray-400 hover:font-semibold hover:text-white">
-                            <Link to={slink.link}>{slink.name}</Link>
+                            <Link to={`${slink.link}`} state={slink.filter}>
+                              {slink.name}
+                            </Link>
                           </h1>
                         </div>
                       );
@@ -89,7 +90,9 @@ const NavLink = () => {
                     key={index}
                     className="pl-10 pt-4 text-base font-normal text-gray-400 hover:font-medium hover:text-white"
                   >
-                    {slink.name}
+                    <Link to={`${slink.link}`} state={slink.filter}>
+                      {slink.name}
+                    </Link>
                   </p>
                 ))}
               </div>
