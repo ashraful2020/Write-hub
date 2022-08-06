@@ -44,7 +44,7 @@ const NavLink = () => {
                 heading !== link.name ? setHeading(link.name) : setHeading("")
               }
             >
-              <Link to={link.link}>{link.name}</Link>
+              <Link to={link.link}>{link.name} </Link>
 
               {link.subMenu && (
                 <span className=" inline text-xl md:ml-2 md:block group-hover:md:-mt-2 group-hover:md:rotate-180">
@@ -66,6 +66,7 @@ const NavLink = () => {
                     {link.subLink.map((slink, index) => {
                       return (
                         <div key={index}>
+                        
                           <h1 className="pt-2 font-normal text-gray-400 hover:font-semibold hover:text-white">
                             <Link to={`${slink.link}`} state={slink.filter}>
                               {slink.name}
@@ -91,7 +92,7 @@ const NavLink = () => {
                     className="pl-10 pt-4 text-base font-normal text-gray-400 hover:font-medium hover:text-white"
                   >
                     <Link to={`${slink.link}`} state={slink.filter}>
-                      {slink.name}
+                      {slink.name} a
                     </Link>
                   </p>
                 ))}

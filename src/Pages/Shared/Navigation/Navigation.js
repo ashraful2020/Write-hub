@@ -9,7 +9,7 @@ const Navigation = () => {
   return (
     <div className="z-50 bg-neutral-900 pt-4 text-white">
       {/*  First Header  */}
-      <div className="py-6 hidden items-center justify-around border-b border-neutral-800 md:flex">
+      <div className="hidden items-center justify-around border-b border-neutral-800 py-6 md:flex">
         {/*  First header first part  */}
         {/* // header part logo */}
         <div className="flex gap-3 text-2xl">
@@ -65,7 +65,23 @@ const Navigation = () => {
           open ? "left-0" : "left-[-100%]"
         }`}
       >
-        <NavLink /> 
+        <NavLink />
+        {user.email ? (
+          <>
+            <span>
+              <Link to="/dashboard" className="nav-link block">
+                Dashboard
+              </Link>
+            </span>
+            <span className="nav-link block" onClick={handleLogOut}>
+              Log out
+            </span>
+          </>
+        ) : (
+          <Link to="/register" className="nav-link block">
+            Sign Up
+          </Link>
+        )}
       </ul>
     </div>
   );

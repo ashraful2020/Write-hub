@@ -28,9 +28,10 @@ const FilterCategory = () => {
           Category:{item}
         </h1>
         <p className="mx-auto max-w-4xl pb-10 text-center text-xl text-gray-500">
-          Dolor similique vitae. Exercitationem quidem occaecati iusto. Id non
-          vitae enim quas error dolor maiores ut. Exercitationem earum ut
-          repudiandae optio veritatis animi nulla qui dolores.
+          Blogging is a great way to show your talents and interests to
+          prospective employers, while adding an edge to your resume. If you
+          blog consistently it shows your dedication, passions and creativity –
+          all of which are key attributes employers look for in job candidates.
         </p>
         <div className="gallery mx-2 pb-96 sm:mx-4 md:mx-12 lg:mx-32">
           {categoryData.map((post, i) => (
@@ -68,23 +69,17 @@ const FilterCategory = () => {
             </div>
           ))}
         </div>
-          <p className="text-center text-4xl max-w-5xl mx-auto min-h-full ">
-            {!categoryData.length && (
-              <div>
-                You may search on
-                <span className="font-mono text-5xl text-blue-400">
-                  {" "}
-                  {item}{" "}
-                </span>
-                category . Unfortunately
-                <span className="font-mono text-5xl text-blue-400">
-                  {" "}
-                  {item}{" "}
-                </span>
+        <p className="mx-auto min-h-full max-w-5xl text-center text-4xl ">
+          {!categoryData.length && (
+            <div>
+              You may search on
+              <span className="font-mono text-5xl text-blue-400"> {item} </span>
+              category . Unfortunately
+              <span className="font-mono text-5xl text-blue-400"> {item} </span>
               category doesn't have any post
-              </div>
-            )}
-          </p>
+            </div>
+          )}
+        </p>
       </div>
     </div>
   );

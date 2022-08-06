@@ -5,7 +5,7 @@ import useAuth from "../../../hooks/useAuth";
 const Register = () => {
   const {
     signInWithGoogle,
-    signUpWithEmail, 
+    signUpWithEmail,
     saveUserName,
     setIsLoading,
     setUser,
@@ -13,19 +13,18 @@ const Register = () => {
   } = useAuth();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(""); 
+  const [password, setPassword] = useState("");
 
-
-    const location = useLocation();
-    const navigate = useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
   const uri = location?.state?.from?.pathname || "/";
-  
+
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then((res) => {
         setIsLoading(true);
-        // setUser();
-        console.log(res)
+        setUser(res.user);
+         navigate(uri);
       })
       .catch((error) => {
         console.log(error.message);
@@ -36,14 +35,13 @@ const Register = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
- 
     // Create user
     signUpWithEmail(email, password)
       .then((result) => {
         setIsLoading(true);
         saveUserName(name);
         setUser(result.user);
-        navigate(uri)
+        navigate(uri);
       })
       .catch((error) => {
         console.log(error.message);
@@ -60,6 +58,7 @@ const Register = () => {
       .then((result) => {
         setIsLoading(true);
         setUser(result.user);
+         navigate(uri);
       })
       .catch((error) => {
         console.log(error.message);
@@ -98,22 +97,22 @@ const Register = () => {
             type="text"
             placeholder="name"
             required
-            />
+          />
           <input
             className="login-input"
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="email"
             required
-            />
+          />
           <input
             className="login-input"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="password"
             required
-            />
-             
+          />
+
           <input className="login-submit" type="Submit" defaultValue="Submit" />
         </form>
         <div className="mt-2 flex items-center justify-evenly">
@@ -126,7 +125,11 @@ const Register = () => {
           Sign in with Google
         </button>
         <p>
-          Already have an account?  <Link to="/login" className=" underline"> Login here</Link>
+          Already have an account?{" "}
+          <Link to="/login" className=" underline">
+            {" "}
+            Login here
+          </Link>
         </p>
         <button className="login-submit" onClick={demoRegister}>
           Demo Register

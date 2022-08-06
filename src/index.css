@@ -37,11 +37,7 @@ code {
   .dashboard-common {
     @apply block p-2 text-lg font-medium uppercase;
   }
-  /* 2 */
-  .dashboard-link {
-    @apply dashboard-common mx-5  border-b border-black border-opacity-20;
-  }
-  /* 2 */
+  
   .dashboard-link-mobile {
     @apply dashboard-common hover:bg-black hover:text-white;
   }
