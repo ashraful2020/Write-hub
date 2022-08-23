@@ -1,39 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchAllPost } from "../../../features/postSlice";
+import Pagination from "../Pagination/Pagination";
 import "./Post.css";
 const Post = () => {
-  const [newData1, setNewData1] = useState([]);
-  /* 
-author: "Mohammad Ashraful"
-authorEmail: "ashrafulibbl595@gmail.com"
-authorPhoto: "https://lh3.googleusercontent.com/a-/AFdZucrNY8nLJeaeLrmP8HXdAPaa63DkD9NYN4HfjQVIZw=s96-c"
-bannerImage: {type: 'Buffer', data: Array(9742)}
-category: "Family"
-message: "asdfasf"
-summery: "false"
-title: "Ashraful " 
-
-data title category 
-<img src={`data:image/png;base64,${image}`} alt=""style={{width:200,}} />
-    title,
-    message,
-    summery,
-    category,
-    author,
-    authorEmail,
-    authorPhoto,
-    bannerImage,
-    date,
-*/
+  const dispatch = useDispatch();
+  const { posts } = useSelector((state) => state.posts);
+ 
   useEffect(() => {
-    fetch("https://write-hub.herokuapp.com/posts")
-      .then((res) => res.json())
-      .then((data) => setNewData1(data));
-  }, []); 
+    dispatch(fetchAllPost());
+  }, [dispatch]);
+
+  
   return (
     <div className="bg-gray-100 py-20">
       <div className="gallery mx-2 sm:mx-4 md:mx-12 lg:mx-32">
-        {newData1.map((post, i) => (
+        {posts.map((post, i) => (
           <div key={post._id} className="pics">
             <Link to={`/post/${post._id}`}>
               {post.type === "blog" && (
@@ -66,6 +49,7 @@ data title category
           </div>
         ))}
       </div>
+      <Pagination />
     </div>
   );
 };

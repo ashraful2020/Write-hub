@@ -11,7 +11,7 @@ const PostComment = () => {
     alert("Comment section interaction Coming soon");
   };
   return (
-    <div className="bg-neutral-200  ">
+    <div className="bg-neutral-200 pb-20">
       <div className="mx-auto  lg:max-w-5xl">
         <p className=" pb-12 font-mono text-5xl italic">5 Comments</p>
         <div>
@@ -24,9 +24,9 @@ const PostComment = () => {
             />
             <div>
               <h1 className="font-mono text-2xl font-normal capitalize">
-                name
+                Jhonson 
               </h1>
-              <p>Dec 16, 2017 @ 25:05</p>
+              <p>Dec 16, 2021 @ 25:05</p>
               <p className="py-4 text-justify leading-7">
                 Alias aperiam at debitis deserunt dignissimos dolorem doloribus,
                 fuga fugiat impedit laudantium magni maxime nihil nisi quidem

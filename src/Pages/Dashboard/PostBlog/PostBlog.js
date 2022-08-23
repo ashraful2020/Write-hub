@@ -1,5 +1,8 @@
 import React, { memo, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import uploadImage from "../../../Assets/images/upload.png";
+import { postBlogInDatabase } from "../../../features/singlePostSlice";
 import useAuth from "../../../hooks/useAuth";
 const PostBlog = () => {
   const { user } = useAuth();
@@ -10,6 +13,7 @@ const PostBlog = () => {
   const [addedSubMessage, setAddedSubMessage] = useState(false);
   const [summery, setSummery] = useState("");
   const [category, setCategory] = useState("");
+
   const formData = new FormData();
   formData.append("title", title);
   formData.append("message", message);
@@ -19,24 +23,21 @@ const PostBlog = () => {
   formData.append("author", user.displayName);
   formData.append("authorEmail", user.email);
   formData.append("authorPhoto", user.photoURL);
-  formData.append("type",'blog');
+  formData.append("type", "blog");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!image || !category) {
       return alert(`please add a ${!image ? " image " : "category"}`);
     }
-
-    fetch("https://write-hub.herokuapp.com/posts", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        alert(data.message);
-        console.log(data.post);
-      });
+    dispatch(postBlogInDatabase(formData));
+    alert("Congratulation's blog post successful");
+    navigate("/dashboard");
   };
+
   const onImageChange = (e) => {
     const [file] = e.target.files;
     setImage(e.target.files[0]);
@@ -45,7 +46,7 @@ const PostBlog = () => {
 
   return (
     <div className="bg-neutral-200">
-      <div className=" mx-auto py-4 px-4 md:max-w-3xl md:py-12 min-h-screen  lg:max-w-5xl">
+      <div className=" mx-auto min-h-screen py-4 px-4 md:max-w-3xl md:py-12  lg:max-w-5xl">
         <form className="relative" onSubmit={handleSubmit}>
           <input
             className="absolute top-8 hidden rounded-sm bg-black px-12 py-4 text-sm font-semibold uppercase tracking-widest text-white hover:bg-sky-700  md:-right-10 lg:block xl:-right-16"
@@ -62,7 +63,7 @@ const PostBlog = () => {
                 />
                 <div className="w-72 border-blue-400 text-left">
                   <label htmlFor="Input_element" className="text-left text-xs">
-                   Change Your image 
+                    Change Your image
                   </label>
                   <input
                     className=" z-10 h-full w-full cursor-pointer opacity-90 "

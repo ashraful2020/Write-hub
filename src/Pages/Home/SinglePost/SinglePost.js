@@ -1,35 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { fetchPostById } from "../../../features/singlePostSlice";
 import withLayout from "../../../hocs/withLayout";
+import Spinner from "../../Shared/Spinner/Spinner";
 import PostComment from "../PostComment/PostComment";
-import img1 from "./3.jpg";
 const SinglePost = () => {
-  const [singlePost, setSinglePost] = useState({});
   const { id } = useParams();
+  const {status,post} = useSelector((state) => state.singlePost);
+  
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetch(`https://write-hub.herokuapp.com/posts/${id}`)
-      .then((res) => res.json())
-      .then((data) => setSinglePost(data));
-  }, [id]);
+    dispatch(fetchPostById(id));
+  }, [id, dispatch]);
+  
   const {
     title,
     message,
     summery,
     category,
     author,
-    authorEmail,
     authorPhoto,
     bannerImage,
     date,
-  } = singlePost;
+  } = post;
   const git = "https://github.com/ashraful2020";
   const linkedin = "https://www.linkedin.com/in/ashraful20/";
-  console.log(summery);
-  const isSummery = summery ? "Ki vai " : "nai vai";
-  console.log(isSummery);
-  console.log(authorPhoto);
+
+  if (status === "loading") {
+    return <Spinner />;
+  }
   return (
-    <div className="bg-stone-50 pb-96">
+    <div className="bg-stone-50">
       <div className=" mx-auto bg-stone-50 py-8 px-4 lg:max-w-5xl">
         <div className="pb-6">
           <h1 className="py-1 text-center font-mono text-3xl font-bold sm:text-5xl">
@@ -41,7 +43,7 @@ const SinglePost = () => {
           </div>
         </div>
         <img
-          src={img1}
+          src={`data:image/png;base64,${bannerImage}`}
           className="mx-auto  max-w-full object-cover md:h-96 md:w-9/12"
           alt=""
         />
@@ -54,7 +56,7 @@ const SinglePost = () => {
             <p className="py-4 text-4xl font-semibold text-blue-400">
               Sub Heading
             </p>
-            {summery}
+            <p> {summery}</p>
           </div>
         )}
 
@@ -63,10 +65,10 @@ const SinglePost = () => {
           <p className="text-xl font-bold">Post Tags</p>
           <hr className="inline h-0.5 w-12 bg-gray-600" />
           <div>
-            <button className="btn-tag"> name</button>
+            <button className="btn-tag"> Learning </button>
             <button className="btn-tag"> {category}</button>
-            <button className="btn-tag"> name</button>
-            <button className="btn-tag"> name</button>
+            <button className="btn-tag"> Profession</button>
+            <button className="btn-tag"> skill</button>
           </div>
         </div>
 
@@ -94,7 +96,6 @@ const SinglePost = () => {
                 rel="noreferrer"
                 className="social-media-btn text-blue-400"
               >
-                
                 Facebook
               </a>
               <a
@@ -103,7 +104,6 @@ const SinglePost = () => {
                 rel="noreferrer"
                 className="social-media-btn text-red-400"
               >
-                
                 Instagram
               </a>
               <a
@@ -111,8 +111,8 @@ const SinglePost = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="social-media-btn text-blue-500"
-              > 
-                Twitter 
+              >
+                Twitter
               </a>
               <a
                 href={linkedin}

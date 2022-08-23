@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { postQuoteInDatabase } from "../../../features/singlePostSlice";
 import useAuth from "../../../hooks/useAuth";
 
 const QuotePost = () => {
   const { user } = useAuth();
   const [message, setMessage] = useState("");
   const [author, setAuthor] = useState("");
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     const post = {
@@ -13,16 +16,8 @@ const QuotePost = () => {
       type: "quote",
       author,
     };
-    fetch("https://write-hub.herokuapp.com/quote", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(post),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        alert(data.message);
-        console.log(data.post);
-      });
+    dispatch(postQuoteInDatabase(post));
+    alert("your quote post successful")
   };
 
   return (

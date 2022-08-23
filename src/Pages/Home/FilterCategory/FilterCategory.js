@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { fetchPostByCategory } from "../../../features/postSlice";
+import Spinner from "../../Shared/Spinner/Spinner";
 const FilterCategory = () => {
   const location = useLocation();
-
-  // if (!location.state) return <p>Loading ...</p>;
-  const [categoryData, setCategoryData] = useState([]);
   const item = location?.state ? location?.state : "Management";
-  const uri = `https://write-hub.herokuapp.com/category-post?category=${item}`;
-  console.log(item);
+  const dispatch = useDispatch();
+  const { categoryPost, status } = useSelector((state) => state.posts);
+  console.log(categoryPost, status);
+  console.log(status);
   useEffect(() => {
-    fetch(uri)
-      .then((res) => res.json())
-      .then((data) => setCategoryData(data.result));
-  }, [uri]);
+    dispatch(fetchPostByCategory(item));
+  }, [item, dispatch]);
 
-  useEffect(() => {}, []);
-  // const test = categoryData.length ? "ase re vai wait kor " : "asole e nai ";
-  // console.log(test);
-  // console.log(categoryData)
+  if (status === "loading") {
+    return <Spinner/>;
+  }
   return (
     <div>
       <div className="min-h-screen bg-gray-100">
@@ -34,9 +33,9 @@ const FilterCategory = () => {
           all of which are key attributes employers look for in job candidates.
         </p>
         <div className="gallery mx-2 pb-96 sm:mx-4 md:mx-12 lg:mx-32">
-          {categoryData.map((post, i) => (
+          {categoryPost.map((post, i) => (
             <div key={post._id} className="pics">
-              <Link to="/post">
+              <Link to={`/post/${post._id}`}>
                 {post.type === "blog" && (
                   <div className="m-1 bg-white  shadow shadow-gray-300">
                     <img
@@ -47,7 +46,7 @@ const FilterCategory = () => {
                     <div className="p-5">
                       <p className="">{post.date}</p>
                       <p className="font-sans text-xl font-semibold tracking-tight">
-                        {post.title}
+                        {post.title} 
                       </p>
                       <p className=" text-justify tracking-tight">
                         {post.message.slice(0, 200)}
@@ -69,8 +68,8 @@ const FilterCategory = () => {
             </div>
           ))}
         </div>
-        <p className="mx-auto min-h-full max-w-5xl text-center text-4xl ">
-          {!categoryData.length && (
+        <div className="mx-auto min-h-full max-w-5xl text-center text-4xl ">
+          {!categoryPost.length && (
             <div>
               You may search on
               <span className="font-mono text-5xl text-blue-400"> {item} </span>
@@ -79,7 +78,7 @@ const FilterCategory = () => {
               category doesn't have any post
             </div>
           )}
-        </p>
+        </div>
       </div>
     </div>
   );
