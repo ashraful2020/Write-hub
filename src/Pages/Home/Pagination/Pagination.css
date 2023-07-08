@@ -1,0 +1,28 @@
+.pagination{ 
+  margin: 0 auto;
+}
+.pagination button{
+  margin-left: 20px;
+  padding: 10px 30px;
+  background-color: rgb(67, 67, 218);
+  border: none;
+  color: white;
+}
+.pagination .button{ 
+    background-color: rgb(229, 229, 255);
+    border: none;
+    color: rgb(211, 8, 8);  
+    font-size: 24px;
+}
+.pagination .button:disabled{
+  margin-left: 20px;
+  padding: 10px 30px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  color: rgb(247, 229, 229);
+}
+.pagination .active-class{
+  background: white;
+color: rgb(67,67,218);
+border: 1px solid  rgb(67,67,218);
+}

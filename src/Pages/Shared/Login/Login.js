@@ -38,6 +38,7 @@ const Login = () => {
       .then((res) => {
         setIsLoading(true);
         setUser(res.user);
+         navigate(uri);
       })
       .catch((error) => {
         console.log(error.message);
@@ -54,6 +55,7 @@ const Login = () => {
       .then((result) => {
         setIsLoading(true);
         setUser(result.user);
+         navigate(uri);
       })
       .catch((error) => {
         console.log(error.message);
@@ -64,7 +66,7 @@ const Login = () => {
   };
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-300 via-purple-300 to-fuchsia-100 pt-10">
-      <div className="backdrop-blur-5xl mx-auto  w-11/12 rounded-xl bg-white bg-opacity-20 p-5 text-center shadow-2xl md:w-1/2 lg:w-1/3">
+      <div className="backdrop-blur-3xl mx-auto  w-11/12 rounded-xl bg-white bg-opacity-20 p-5 text-center shadow-2xl md:w-1/2 lg:w-1/3">
        
         <p className="flex h-20 items-center justify-center gap-10 font-mono text-2xl font-bold md:text-4xl">
           <img src={logo} alt="" className=" h-12 md:h-16" />

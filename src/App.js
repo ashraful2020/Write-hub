@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./contexts/AuthProvider";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import DashboardHome from "./Pages/Dashboard/Dashboard/DashboardHome";
 import PostBlog from "./Pages/Dashboard/PostBlog/PostBlog";
-import PostBlog1 from "./Pages/Dashboard/PostBlog/PostBlog1";
-import PostBlog2 from "./Pages/Dashboard/PostBlog/PostBlog2";
+import Profile from "./Pages/Dashboard/Profile/Profile";
+import QuotePost from "./Pages/Dashboard/QuotePost/QuotePost";
 import About from "./Pages/Home/About/About";
 import Contact from "./Pages/Home/Contact.js/Contact";
+import FilterCategory from "./Pages/Home/FilterCategory/FilterCategory";
 import Home from "./Pages/Home/Home/Home";
 import SinglePost from "./Pages/Home/SinglePost/SinglePost";
 import Login from "./Pages/Shared/Login/Login";
@@ -18,44 +19,35 @@ import Register from "./Pages/Shared/Register/Register";
 import Spinner from "./Pages/Shared/Spinner/Spinner";
 
 function App() {
-  const [pageLoading, setPageLoading] = useState(false);
-  useEffect(() => {
-    setPageLoading(true);
-    setTimeout(() => {
-      setPageLoading(false);
-    }, 2000);
-  }, []);
-
+  const { loading } = useSelector((state) => state.posts);
   return (
     <AuthProvider className="App">
-      {pageLoading && <Spinner />}
-      {pageLoading ? (
-        <Spinner />
-      ) : (
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<About />} />
-          <Route path="/contact" element={<Contact/>} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/post" element={<SinglePost />} />
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            }
-          >
-            <Route path="/dashboard" element={<DashboardHome />} />
-            <Route path="/dashboard/post-blog" element={<PostBlog />} />
-            <Route path="/dashboard/post-blog1" element={<PostBlog1 />} />
-            <Route path="/dashboard/post-blog2" element={<PostBlog2 />} />
-          </Route>
+      {loading && <Spinner />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/post/:id" element={<SinglePost />} />
+        <Route path="/category-post" element={<FilterCategory />} />
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      )}
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        >
+          <Route path="/dashboard" element={<DashboardHome />} />
+          <Route path="/dashboard/post-blog" element={<PostBlog />} />
+          <Route path="/dashboard/post-quote" element={<QuotePost />} />
+          <Route path="/dashboard/profile" element={<Profile />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </AuthProvider>
   );
 }

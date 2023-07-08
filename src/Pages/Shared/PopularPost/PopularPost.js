@@ -151,7 +151,7 @@ const PopularPost = () => {
           <h2 className="my-12 mx-4 text-left text-3xl font-semibold lg:mx-14">
             About WriteHub
           </h2>
-          <div className="my-12  mx-4 text-gray-500 lg:mx-14">
+          <div className="my-12  mx-4 text-gray-500 lg:mx-14 text-justify tracking-wide leading-8">
             Looking for some free blog sites to help you start sharing your
             writing with the world? Whether you just want to share updates with
             your family and friends or you want to start a blog and build a

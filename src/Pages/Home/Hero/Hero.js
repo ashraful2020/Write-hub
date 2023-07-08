@@ -33,7 +33,7 @@ const Hero = () => {
           </div>
         </div>
         {/* second */}
-        <div className="row-start-3 lg:row-start-1">
+        <div className="row-start-3 lg:row-start-1 mx-5 md:mx-0">
           <img
             className="h-72 w-full object-cover brightness-75 hover:brightness-50 lg:h-full"
             src="https://i.ibb.co/DgKPHcw/watch.png"

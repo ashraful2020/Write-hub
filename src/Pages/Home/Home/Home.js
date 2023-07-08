@@ -1,15 +1,15 @@
-import React from "react"; 
+import React, { memo } from "react";
 import withLayout from "../../../hocs/withLayout";
 import Hero from "../Hero/Hero";
 import Post from "../Post/Post";
 
 const Home = () => {
   return (
-    <div>  
+    <div>
       <Hero />
-      <Post /> 
+      <Post />
     </div>
   );
 };
 
-export default withLayout(Home);
+export default withLayout(memo(Home));

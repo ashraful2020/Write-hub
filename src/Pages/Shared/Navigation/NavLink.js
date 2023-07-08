@@ -9,12 +9,12 @@ const NavLink = () => {
       link: "/",
       subMenu: true,
       subLink: [
-        { name: "Life Style", link: "/life-style" },
-        { name: "Health", link: "/health" },
-        { name: "Family", link: "/family" },
-        { name: "Management", link: "/management" },
-        { name: "Travel", link: "/" },
-        { name: "Work", link: "/" },
+        { name: "Life Style", link: "/category-post",filter:"Life-style" },
+        { name: "Health", link: "/category-post",filter:"Health" },
+        { name: "Family", link: "/category-post",filter:"Family" },
+        { name: "Management", link: "/category-post",filter:"Management" },
+        { name: "Travel", link: "/category-post",filter:"Travel" },
+        { name: "Work", link: "/category-post",filter:"Work" },
       ],
     },
     {
@@ -22,13 +22,12 @@ const NavLink = () => {
       link: "/",
       subMenu: true,
       subLink: [
-        { name: "Video Post", link: "/video-post" },
-        { name: "Audio Post", link: "/audio-post" },
-        { name: "Gallery Post", link: "/gallery-post" },
-        { name: "Standard Post", link: "/standard-post" },
+        { name: "Gallery Post", link: "/dashboard/post-blog" },
+        { name: "Standard Post", link: "/dashboard/post-quote" },
+        { name: "Video Post", link: "/dashboard/video-post" },
+        { name: "Audio Post", link: "/dashboard/audio-post" },
       ],
-    },
-    { name: "Styles", link: "/styles", subMenu: false },
+    }, 
     { name: "Contact", link: "/contact", subMenu: false },
   ];
 
@@ -45,7 +44,7 @@ const NavLink = () => {
                 heading !== link.name ? setHeading(link.name) : setHeading("")
               }
             >
-              <Link to={link.link}>{link.name}</Link>
+              <Link to={link.link}>{link.name} </Link>
 
               {link.subMenu && (
                 <span className=" inline text-xl md:ml-2 md:block group-hover:md:-mt-2 group-hover:md:rotate-180">
@@ -67,8 +66,11 @@ const NavLink = () => {
                     {link.subLink.map((slink, index) => {
                       return (
                         <div key={index}>
+                        
                           <h1 className="pt-2 font-normal text-gray-400 hover:font-semibold hover:text-white">
-                            <Link to={slink.link}>{slink.name}</Link>
+                            <Link to={`${slink.link}`} state={slink.filter}>
+                              {slink.name}
+                            </Link>
                           </h1>
                         </div>
                       );
@@ -89,7 +91,9 @@ const NavLink = () => {
                     key={index}
                     className="pl-10 pt-4 text-base font-normal text-gray-400 hover:font-medium hover:text-white"
                   >
-                    {slink.name}
+                    <Link to={`${slink.link}`} state={slink.filter}>
+                      {slink.name} a
+                    </Link>
                   </p>
                 ))}
               </div>
